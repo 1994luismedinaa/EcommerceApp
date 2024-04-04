@@ -33,11 +33,16 @@ class _ProductsState extends State<HomePage> {
             switch (state.runtimeType) {
               case ProductsFetchingSucessfulState:
                 final sucessState = state as ProductsFetchingSucessfulState;
-                return ListView.builder(
+                return ListView.separated(
+                  padding: const EdgeInsets.all(8),
+                  separatorBuilder: (BuildContext context, int index) =>
+                      const SizedBox(height: 10),
                   itemCount: sucessState.products.length,
                   itemBuilder: (context, index) {
                     return Material(
-                        color: const Color.fromARGB(255, 234, 234, 234),
+                        shadowColor: const Color.fromARGB(255, 10, 9, 9),
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color.fromARGB(255, 227, 224, 224),
                         child: ListTile(
                           onTap: () {
                             setState(() {});
