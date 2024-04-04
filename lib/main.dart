@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         length: 4,
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: const Color(0xFF3F5AA6),
+            backgroundColor: const Color.fromARGB(255, 76, 76, 77),
             title: const Text("Title text"),
           ),
           bottomNavigationBar: const BottomNav(),

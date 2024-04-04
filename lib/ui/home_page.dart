@@ -22,15 +22,13 @@ class _ProductsState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('E-Commerce App'),
+          title: const Text('E-Commerce App'),
         ),
         body: BlocConsumer<ProductsBloc, ProductsState>(
           bloc: productsBloc,
           listenWhen: (previous, current) => current is ProductsActionState,
           buildWhen: (previous, current) => current is! ProductsActionState,
-          listener: (context, state) {
-            // TODO: implement listener
-          },
+          listener: (context, state) {},
           builder: (context, state) {
             switch (state.runtimeType) {
               case ProductsFetchingSucessfulState:
@@ -38,15 +36,45 @@ class _ProductsState extends State<HomePage> {
                 return ListView.builder(
                   itemCount: sucessState.products.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Row(
-                        children: [
-                          Image.network(state.products[index].image,
-                              width: 80, height: 80),
-                          Text(state.products[index].category),
-                        ],
-                      ),
-                    );
+                    return Material(
+                        color: const Color.fromARGB(255, 234, 234, 234),
+                        child: ListTile(
+                          onTap: () {
+                            setState(() {});
+                          },
+                          title: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Image.network(state.products[index].image,
+                                  width: 80, height: 80),
+                              const SizedBox(height: 10),
+                              Text(state.products[index].category),
+                            ],
+                          ),
+                          trailing: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                '\$${state.products[index].price.toString()}',
+                                style: const TextStyle(
+                                  color: Color.fromARGB(255, 4, 4, 4),
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                'rate: ${state.products[index].rating.rate.toString()}',
+                                style: const TextStyle(
+                                  color: Color.fromARGB(255, 77, 77, 77),
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          dense: false,
+                        ));
                   },
                 );
             }

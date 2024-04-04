@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:ecommerce/models/raiting.dart';
 
 @immutable
 class ProductsModel {
@@ -11,15 +12,16 @@ class ProductsModel {
   final String description;
   final String category;
   final String image;
+  final Rating rating;
 
-  const ProductsModel({
-    required this.id,
-    required this.title,
-    required this.price,
-    required this.description,
-    required this.category,
-    required this.image,
-  });
+  const ProductsModel(
+      {required this.id,
+      required this.title,
+      required this.price,
+      required this.description,
+      required this.category,
+      required this.image,
+      required this.rating});
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -29,6 +31,7 @@ class ProductsModel {
       'description': description,
       'category': category,
       'image': image,
+      'rating': rating.toJson(),
     };
   }
 
@@ -40,6 +43,7 @@ class ProductsModel {
       description: map['description'] as String,
       category: map['category'] as String,
       image: map['image'] as String,
+      rating: Rating.fromJson(map['rating'] as Map<String, dynamic>),
     );
   }
 

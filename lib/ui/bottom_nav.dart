@@ -20,6 +20,7 @@ class _BottomNavState extends State<BottomNav> {
         children: const [HomePage(), SettingsPage()],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.blue,
         currentIndex: index,
         onTap: (int newindex) {
           setState(() {
