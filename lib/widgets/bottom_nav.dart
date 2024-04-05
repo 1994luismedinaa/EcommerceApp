@@ -1,5 +1,5 @@
-import 'package:ecommerce/ui/home_page.dart';
-import 'package:ecommerce/ui/settings.page.dart';
+import 'package:ecommerce/screens/home_page.dart';
+import 'package:ecommerce/screens/settings.page.dart';
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatefulWidget {

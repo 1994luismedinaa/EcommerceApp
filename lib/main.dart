@@ -1,4 +1,4 @@
-import 'package:ecommerce/ui/bottom_nav.dart';
+import 'package:ecommerce/widgets/bottom_nav.dart';
 import 'package:flutter/material.dart';
 
 void main() async => runApp(const MyApp());
